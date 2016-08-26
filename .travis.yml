@@ -5,10 +5,10 @@ python:
   - "3.5"
 
 install:
-  - pip install nose coverage click
+  - pip install nose coverage click codeclimate-test-reporter
 
-script: nosetests --with-doctest --with-coverage --cover-erase --cover-package=migrator
+script:
+  - nosetests --with-doctest --with-coverage --cover-package=migrator
 
-addons:
-    code_climate:
-        repo_token: e274d9f1e9bdd89191bdecc9f05356983eb05967021808ce89c53b7817c37b39
+after_success:
+  - codeclimate-test-reporter
