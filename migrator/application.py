@@ -11,6 +11,12 @@ import collections
 from .domain import Migrator, IState, ISearcher, ICreator, IExecutor
 
 
+def max(x):
+    return x * x
+
+def max2(x):
+    return x * x
+
 STATE_PATH = '.migrator'
 
 MIGRATION_TEMPLATE = '''"""
