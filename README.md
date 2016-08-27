@@ -88,3 +88,7 @@ install it with:
 Then you can run the testsuite with:
 
     nosetests
+
+## License
+
+  Code and documentation are available according to the MIT License (see  [LICENSE](https://github.com/Afonasev/Migrator/edit/master/LICENSE)).
