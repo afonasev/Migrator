@@ -81,10 +81,10 @@ withount ``-n`` flag all migrations will be rollbacked.
 ## Running the testsuite
 
 The minimal requirement for running the testsuite is ``nose``.  You can
-install it with::
+install it with:
 
     pip install nose
 
-Then you can run the testsuite with::
+Then you can run the testsuite with:
 
     nosetests
