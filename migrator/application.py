@@ -1,9 +1,9 @@
-import os
-import json
-import datetime as dt
 import collections
+import datetime as dt
+import json
+import os
 
-from .domain import Migrator, IState, ISearcher, ICreator, IExecutor
+from .domain import ICreator, IExecutor, ISearcher, IState, Migrator
 
 
 STATE_PATH = '.migrator'

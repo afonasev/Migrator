@@ -5,10 +5,12 @@ python:
   - "3.5"
 
 install:
-  - pip install nose coverage click codeclimate-test-reporter
+  - pip install pytest pytest-coverage codeclimate-test-reporter
+  - pip install flake8 flake8-import-order
 
 script:
-  - nosetests --with-doctest --with-coverage --cover-package=migrator
+  - py.test --cov=migrator
+  - flake8
 
 after_success:
   - codeclimate-test-reporter

@@ -81,15 +81,11 @@ withount ``-n`` flag all migrations will be rollbacked.
 
 ## Running the testsuite
 
-The minimal requirement for running the testsuite is ``nose``.  You can
+The minimal requirement for running the testsuite is ``pytest``.  You can
 install it with:
 
-    pip install nose
+    pip install pytest
 
 Then you can run the testsuite with:
 
-    nosetests
-
-## License
-
-  Code and documentation are available according to the MIT License (see  [LICENSE](https://github.com/Afonasev/Migrator/edit/master/LICENSE)).
+    py.test
