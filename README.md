@@ -82,10 +82,10 @@ withount ``-n`` flag all migrations will be rollbacked.
 ## Running the testsuite
 
 The minimal requirement for running the testsuite is ``pytest``.  You can
-install it with::
+install it with:
 
     pip install pytest
 
-Then you can run the testsuite with::
+Then you can run the testsuite with:
 
     py.test
