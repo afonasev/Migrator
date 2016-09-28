@@ -1,3 +1,4 @@
+import enum
 import os
 
 import click
@@ -17,7 +18,7 @@ number_option = click.option(
 )
 
 
-class Color:
+class Color(enum.Enum):
     RED = 'red'
     GREEN = 'green'
 

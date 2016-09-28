@@ -62,7 +62,7 @@ class Searcher(ISearcher):
         self._path = path
 
     def get_names(self) -> [str]:
-        names = self._get_list(self._path)
+        names = self._get_list()
         names.remove('__init__.py')
 
         for n in list(names):
@@ -71,7 +71,7 @@ class Searcher(ISearcher):
 
         return sorted(names)
 
-    def _get_list(self, path):
+    def _get_list(self):
         return os.listdir(self._path)
 
 
