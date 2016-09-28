@@ -36,7 +36,7 @@ class State(IState):
 
     JSON_INDENT = 4
 
-    def __init__(self, path: str):
+    def __init__(self, path: str, test=None):
         if os.path.exists(path):
             with open(path) as f:
                 self._data = json.load(f)
