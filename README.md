@@ -1,6 +1,7 @@
 # Migrator
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Afonasev/Migrator/edit/master/LICENSE)
 [![Build Status](https://travis-ci.org/Afonasev/Migrator.svg?branch=master)](https://travis-ci.org/Afonasev/Migrator)
+[![Coverage Status](https://coveralls.io/repos/github/Afonasev/Migrator/badge.svg?branch=master)](https://coveralls.io/github/Afonasev/Migrator?branch=master)
 
 ## Installing
 ```
