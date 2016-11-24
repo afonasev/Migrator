@@ -1,24 +1,23 @@
-import enum
 import os
 
 import click
 
-from .application import migrator_factory
+from .application import MIGRATIONS_PATH, STATE_PATH, migrator_factory
 
-
-MIGRATIONS_PATH = './migrations'
 LIST_NAME_LENGTH = 50
-
 
 path_option = click.option(
     '--path', '-p', default=MIGRATIONS_PATH, help='migrations path',
+)
+state_path_option = click.option(
+    '--state', '-s', default=STATE_PATH, help='migrator state path',
 )
 number_option = click.option(
     '--number', '-n', type=int, default=None, help='migrations number',
 )
 
 
-class Color(enum.Enum):
+class Color:
     RED = 'red'
     GREEN = 'green'
 
@@ -30,34 +29,38 @@ def cli():
 
 @cli.command()
 @path_option
+@state_path_option
 @click.option('--name', '-n', default='migration', help='new migration name')
-def new(path, name):
+def new(path, state, name):
     create_package(path)
-    migration_name = migrator_factory(path).create_new_migration(name)
+    migration_name = migrator_factory(path, state).create_new_migration(name)
     click.echo('Migration "%s" created.' % migration_name)
 
 
 @cli.command()
 @path_option
+@state_path_option
 @number_option
-def apply(path, number):
-    applied_migrations = migrator_factory(path).apply(number)
+def apply(path, state, number):
+    applied_migrations = migrator_factory(path, state).apply(number)
     click.echo('%s applied.' % applied_migrations)
 
 
 @cli.command()
 @path_option
+@state_path_option
 @number_option
-def rollback(path, number):
-    rollbacked_migrations = migrator_factory(path).rollback(number)
+def rollback(path, state, number):
+    rollbacked_migrations = migrator_factory(path, state).rollback(number)
     click.echo('%s rollbacked.' % rollbacked_migrations)
 
 
 @cli.command()
 @path_option
+@state_path_option
 @number_option
-def show(path, number):
-    migrations = migrator_factory(path).get_migrations(number)
+def show(path, state, number):
+    migrations = migrator_factory(path, state).get_migrations(number)
 
     click.echo('Migration' + ' ' * (LIST_NAME_LENGTH - 9) + 'Applied?')
     for name, applied in migrations:

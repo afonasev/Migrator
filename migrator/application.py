@@ -6,6 +6,7 @@ import os
 from .domain import ICreator, IExecutor, ISearcher, IState, Migrator
 
 
+MIGRATIONS_PATH = './migrations'
 STATE_PATH = '.migrator'
 
 MIGRATION_TEMPLATE = '''"""
@@ -23,9 +24,12 @@ def rollback():
 '''
 
 
-def migrator_factory(path: str) -> Migrator:
+def migrator_factory(
+    path: str=MIGRATIONS_PATH,
+    state_path: str=STATE_PATH,
+) -> Migrator:
     return Migrator(
-        State(STATE_PATH),
+        State(state_path),
         Searcher(path),
         Creator(path),
         Executor(path),
